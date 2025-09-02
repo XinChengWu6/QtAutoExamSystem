@@ -33,6 +33,7 @@ private:
     Ui::ExamDialog *ui;
     std::shared_ptr<ExamSystem> examSystem;
     int currentIndex;
+   int currentSingleChoiceAnswer;
 };
 
 #endif // EXAMDIALOG_H

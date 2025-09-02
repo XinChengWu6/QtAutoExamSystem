@@ -40,10 +40,11 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QRadioButton *option1Radio;
-    QLineEdit *option1edit;
+    QLineEdit *option1Edit;
+    QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_2;
     QRadioButton *option2Radio;
-    QLineEdit *optin2Edit;
+    QLineEdit *option2Edit;
     QHBoxLayout *horizontalLayout_3;
     QRadioButton *option3Radio;
     QLineEdit *option3Edit;
@@ -51,8 +52,8 @@ public:
     QRadioButton *option4Radio;
     QLineEdit *option4Edit;
     QHBoxLayout *horizontalLayout_5;
+    QPushButton *addOptionButton;
     QPushButton *removeOptionButton;
-    QPushButton *addoptionButton;
     QHBoxLayout *horizontalLayout_8;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -64,7 +65,7 @@ public:
         SingleChoiceDialog->resize(500, 400);
         layoutWidget = new QWidget(SingleChoiceDialog);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(120, 20, 252, 234));
+        layoutWidget->setGeometry(QRect(120, 20, 252, 240));
         verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -115,13 +116,18 @@ public:
 
         horizontalLayout->addWidget(option1Radio);
 
-        option1edit = new QLineEdit(optionsGroup);
-        option1edit->setObjectName("option1edit");
+        option1Edit = new QLineEdit(optionsGroup);
+        option1Edit->setObjectName("option1Edit");
 
-        horizontalLayout->addWidget(option1edit);
+        horizontalLayout->addWidget(option1Edit);
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName("verticalLayout_4");
+
+        verticalLayout->addLayout(verticalLayout_4);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
@@ -130,10 +136,10 @@ public:
 
         horizontalLayout_2->addWidget(option2Radio);
 
-        optin2Edit = new QLineEdit(optionsGroup);
-        optin2Edit->setObjectName("optin2Edit");
+        option2Edit = new QLineEdit(optionsGroup);
+        option2Edit->setObjectName("option2Edit");
 
-        horizontalLayout_2->addWidget(optin2Edit);
+        horizontalLayout_2->addWidget(option2Edit);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -173,15 +179,15 @@ public:
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName("horizontalLayout_5");
+        addOptionButton = new QPushButton(layoutWidget);
+        addOptionButton->setObjectName("addOptionButton");
+
+        horizontalLayout_5->addWidget(addOptionButton);
+
         removeOptionButton = new QPushButton(layoutWidget);
         removeOptionButton->setObjectName("removeOptionButton");
 
         horizontalLayout_5->addWidget(removeOptionButton);
-
-        addoptionButton = new QPushButton(layoutWidget);
-        addoptionButton->setObjectName("addoptionButton");
-
-        horizontalLayout_5->addWidget(addoptionButton);
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
@@ -222,18 +228,18 @@ public:
         label->setText(QCoreApplication::translate("SingleChoiceDialog", "\351\242\230\345\271\262\357\274\232", nullptr));
         optionsGroup->setTitle(QString());
         option1Radio->setText(QString());
-        option1edit->setPlaceholderText(QCoreApplication::translate("SingleChoiceDialog", "\351\200\211\351\241\2711", nullptr));
+        option1Edit->setPlaceholderText(QCoreApplication::translate("SingleChoiceDialog", "\351\200\211\351\241\2711", nullptr));
         option2Radio->setText(QString());
-        optin2Edit->setText(QString());
-        optin2Edit->setPlaceholderText(QCoreApplication::translate("SingleChoiceDialog", "\351\200\211\351\241\2712", nullptr));
+        option2Edit->setText(QString());
+        option2Edit->setPlaceholderText(QCoreApplication::translate("SingleChoiceDialog", "\351\200\211\351\241\2712", nullptr));
         option3Radio->setText(QString());
         option3Edit->setText(QString());
         option3Edit->setPlaceholderText(QCoreApplication::translate("SingleChoiceDialog", "\351\200\211\351\241\2713", nullptr));
         option4Radio->setText(QString());
         option4Edit->setText(QString());
         option4Edit->setPlaceholderText(QCoreApplication::translate("SingleChoiceDialog", "\351\200\211\351\241\2714", nullptr));
+        addOptionButton->setText(QCoreApplication::translate("SingleChoiceDialog", "\346\267\273\345\212\240\351\200\211\351\241\271", nullptr));
         removeOptionButton->setText(QCoreApplication::translate("SingleChoiceDialog", "\345\210\240\351\231\244\351\200\211\351\241\271", nullptr));
-        addoptionButton->setText(QCoreApplication::translate("SingleChoiceDialog", "\346\267\273\345\212\240\351\200\211\351\241\271", nullptr));
         pushButton->setText(QCoreApplication::translate("SingleChoiceDialog", " \347\241\256\345\256\232", nullptr));
         pushButton_2->setText(QCoreApplication::translate("SingleChoiceDialog", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi

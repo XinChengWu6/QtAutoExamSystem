@@ -26,13 +26,13 @@ class Ui_ExamDialog
 public:
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_2;
     QLabel *questionLabel;
     QListWidget *answerWidget;
-    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *horizontalLayout;
     QPushButton *prevButton;
-    QPushButton *nextButton;
     QPushButton *submitButton;
+    QPushButton *nextButton;
 
     void setupUi(QDialog *ExamDialog)
     {
@@ -41,44 +41,44 @@ public:
         ExamDialog->resize(955, 631);
         layoutWidget = new QWidget(ExamDialog);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(220, 50, 328, 252));
+        layoutWidget->setGeometry(QRect(220, 41, 671, 501));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
         questionLabel = new QLabel(layoutWidget);
         questionLabel->setObjectName("questionLabel");
 
-        horizontalLayout->addWidget(questionLabel);
+        verticalLayout_2->addWidget(questionLabel);
 
         answerWidget = new QListWidget(layoutWidget);
         answerWidget->setObjectName("answerWidget");
 
-        horizontalLayout->addWidget(answerWidget);
+        verticalLayout_2->addWidget(answerWidget);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-
-        horizontalLayout->addLayout(horizontalLayout_2);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
         prevButton = new QPushButton(layoutWidget);
         prevButton->setObjectName("prevButton");
 
-        verticalLayout->addWidget(prevButton);
-
-        nextButton = new QPushButton(layoutWidget);
-        nextButton->setObjectName("nextButton");
-
-        verticalLayout->addWidget(nextButton);
+        horizontalLayout->addWidget(prevButton);
 
         submitButton = new QPushButton(layoutWidget);
         submitButton->setObjectName("submitButton");
 
-        verticalLayout->addWidget(submitButton);
+        horizontalLayout->addWidget(submitButton);
+
+        nextButton = new QPushButton(layoutWidget);
+        nextButton->setObjectName("nextButton");
+
+        horizontalLayout->addWidget(nextButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout);
+
+
+        verticalLayout->addLayout(verticalLayout_2);
 
 
         retranslateUi(ExamDialog);
@@ -94,8 +94,8 @@ public:
         ExamDialog->setWindowTitle(QCoreApplication::translate("ExamDialog", "Dialog", nullptr));
         questionLabel->setText(QCoreApplication::translate("ExamDialog", " \351\242\230\347\233\256\345\206\205\345\256\271\357\274\232", nullptr));
         prevButton->setText(QCoreApplication::translate("ExamDialog", "\344\270\212\344\270\200\351\242\230", nullptr));
-        nextButton->setText(QCoreApplication::translate("ExamDialog", "\344\270\213\344\270\200\351\242\230", nullptr));
         submitButton->setText(QCoreApplication::translate("ExamDialog", "\346\217\220\344\272\244\350\257\225\345\215\267", nullptr));
+        nextButton->setText(QCoreApplication::translate("ExamDialog", "\344\270\213\344\270\200\351\242\230", nullptr));
     } // retranslateUi
 
 };

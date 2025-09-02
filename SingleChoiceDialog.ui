@@ -19,7 +19,7 @@
      <x>120</x>
      <y>20</y>
      <width>252</width>
-     <height>234</height>
+     <height>240</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -82,13 +82,16 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="option1edit">
+            <widget class="QLineEdit" name="option1Edit">
              <property name="placeholderText">
               <string>选项1</string>
              </property>
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_4"/>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -100,7 +103,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="optin2Edit">
+            <widget class="QLineEdit" name="option2Edit">
              <property name="text">
               <string/>
              </property>
@@ -159,16 +162,16 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QPushButton" name="removeOptionButton">
+         <widget class="QPushButton" name="addOptionButton">
           <property name="text">
-           <string>删除选项</string>
+           <string>添加选项</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="addoptionButton">
+         <widget class="QPushButton" name="removeOptionButton">
           <property name="text">
-           <string>添加选项</string>
+           <string>删除选项</string>
           </property>
          </widget>
         </item>

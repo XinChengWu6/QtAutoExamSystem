@@ -119,21 +119,29 @@ void SingleChoiceDialog::on_removeOptionButton_clicked()
     // 获取选项组的布局
     QVBoxLayout* layout = qobject_cast<QVBoxLayout*>(ui->optionsGroup->layout());
     if (!layout || layout->count() == 0) {
+        return; // 布局无效或为空，直接返回
+    }
+
+    // 删除最后一个选项：先取出最后一个布局项
+    QLayoutItem* item = layout->takeAt(layout->count() - 1);
+    if (!item) { // 增加空指针检查：如果布局项为空，直接返回
         return;
     }
 
-    // 删除最后一个选项
-    QLayoutItem* item = layout->takeAt(layout->count() - 1);
-    if (item && item->layout()) {
+    // 处理布局项中的子布局（选项行的水平布局）
+    if (item->layout()) {
         QLayout* optionLayout = item->layout();
-        // 删除布局中的控件
+        // 删除子布局中的所有控件（单选按钮和输入框）
         while (QLayoutItem* child = optionLayout->takeAt(0)) {
-            if (child->widget()) {
+            if (child->widget()) { // 确保控件存在再删除
                 delete child->widget();
             }
-            delete child;
+            delete child; // 删除子布局项
         }
-        delete optionLayout;
+        delete optionLayout; // 删除子布局
+    } else if (item->widget()) { // 处理布局项直接是控件的情况（虽然当前代码不会，但以防万一）
+        delete item->widget();
     }
-    delete item;
+
+    delete item; // 最后删除布局项本身
 }
