@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ExamPaper>
+	<Question type="单选题">
+		<Description>1</Description>
+		<Score>100</Score>
+		<Options>
+			<Option>3</Option>
+			<Option>4</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+</ExamPaper>

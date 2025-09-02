@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<ExamPaper>
+	<Question type="单选题">
+		<Description>1</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>4</Option>
+			<Option>5</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+	<Question type="单选题">
+		<Description>2</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>5</Option>
+			<Option>6</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+	<Question type="单选题">
+		<Description>3</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>5</Option>
+			<Option>6</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+	<Question type="单选题">
+		<Description>4</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>3</Option>
+			<Option>4</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+	<Question type="单选题">
+		<Description>33</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>22</Option>
+			<Option>44</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+	<Question type="多选题">
+		<Description>555</Description>
+		<Score>20</Score>
+		<Options>
+			<Option>55</Option>
+			<Option>555</Option>
+			<Option>555555</Option>
+			<Option>55555555</Option>
+		</Options>
+		<CorrectAnswers>
+			<Answer>0</Answer>
+			<Answer>1</Answer>
+		</CorrectAnswers>
+	</Question>
+	<Question type="判断题">
+		<Description>545</Description>
+		<Score>10</Score>
+		<CorrectAnswer>true</CorrectAnswer>
+	</Question>
+	<Question type="问答题">
+		<Description>45</Description>
+		<Score>20</Score>
+		<Keywords>
+			<Keyword>45</Keyword>
+		</Keywords>
+		<ScoringRule>0</ScoringRule>
+	</Question>
+</ExamPaper>

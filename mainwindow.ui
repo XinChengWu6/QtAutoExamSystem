@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>702</width>
+    <height>492</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="questionTable">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>50</y>
+      <width>441</width>
+      <height>281</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>702</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuquestion">
+    <property name="title">
+     <string>出题</string>
+    </property>
+    <addaction name="actionAddSingleChoice"/>
+    <addaction name="actionAddMultipleChoice"/>
+    <addaction name="actionAddJudgement"/>
+    <addaction name="actionAddEssay"/>
+   </widget>
+   <widget class="QMenu" name="menuExam">
+    <property name="title">
+     <string>考试</string>
+    </property>
+    <addaction name="actionStarExam"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuquestion"/>
+   <addaction name="menuExam"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>新建试卷</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>打开试卷</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>保存试卷</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actionAddSingleChoice">
+   <property name="text">
+    <string>添加单选题</string>
+   </property>
+  </action>
+  <action name="actionAddMultipleChoice">
+   <property name="text">
+    <string>添加多选题</string>
+   </property>
+  </action>
+  <action name="actionAddJudgement">
+   <property name="text">
+    <string>添加判断题</string>
+   </property>
+  </action>
+  <action name="actionAddEssay">
+   <property name="text">
+    <string>添加问答题</string>
+   </property>
+  </action>
+  <action name="actionStarExam">
+   <property name="text">
+    <string>开始考试</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
