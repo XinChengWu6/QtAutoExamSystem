@@ -6,6 +6,8 @@
 #include "ExamSystem.h"
 #include <vector>
 #include <QCheckBox>
+#include <QTextEdit>
+
 namespace Ui {
 class ExamDialog;
 }
@@ -40,7 +42,7 @@ private:
     bool currentJudgementAnswer;         // 判断题答案（true/false）
     QString currentEssayAnswer;          // 问答题答案（文本）
     std::vector<QCheckBox*> checkBoxes;
-
+    QTextEdit* essayTextEdit = nullptr;
 
 };
 

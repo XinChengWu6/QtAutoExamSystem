@@ -171,10 +171,11 @@ void ExamDialog::setupEssayUI(std::shared_ptr<Question> question)
 {
     QVBoxLayout* layout = new QVBoxLayout(ui->answerWidget);
 
-    QTextEdit* textEdit = new QTextEdit();
-    layout->addWidget(textEdit);
+    essayTextEdit = new QTextEdit(); // 使用成员变量存储
+    layout->addWidget(essayTextEdit);
 
-    // 如果已经有答案，填充文本
+    // 可选：如果有历史答案，可在此处加载
+    // 例如：essayTextEdit->setText(...)
 }
 
 void ExamDialog::saveAnswer()
@@ -215,6 +216,14 @@ void ExamDialog::saveAnswer()
         // 将bool值转换为"true"/"false"字符串（与JudgementQuestion的评分逻辑兼容）
         std::string answerStr = currentJudgementAnswer ? "true" : "false";
         examSystem->submitAnswer(currentIndex, answerStr);
+    }
+    else if (currentQuestion->getType() == "问答题") { // 新增：处理问答题
+        if (essayTextEdit) {
+            // 获取用户输入的答案文本
+            std::string answerStr = essayTextEdit->toPlainText().toStdString();
+            // 提交答案到考试系统
+            examSystem->submitAnswer(currentIndex, answerStr);
+        }
     }
 
 
