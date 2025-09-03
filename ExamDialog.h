@@ -4,7 +4,8 @@
 #include <QDialog>
 #include <memory>
 #include "ExamSystem.h"
-
+#include <vector>
+#include <QCheckBox>
 namespace Ui {
 class ExamDialog;
 }
@@ -30,10 +31,17 @@ private:
     void setupEssayUI(std::shared_ptr<Question> question);
     void saveAnswer();
 
+
     Ui::ExamDialog *ui;
     std::shared_ptr<ExamSystem> examSystem;
     int currentIndex;
    int currentSingleChoiceAnswer;
+    std::vector<int> currentMultiAnswers; // 多选题答案（选中的索引列表）
+    bool currentJudgementAnswer;         // 判断题答案（true/false）
+    QString currentEssayAnswer;          // 问答题答案（文本）
+    std::vector<QCheckBox*> checkBoxes;
+
+
 };
 
 #endif // EXAMDIALOG_H

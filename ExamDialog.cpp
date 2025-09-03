@@ -12,6 +12,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
+
 ExamDialog::ExamDialog(std::shared_ptr<ExamSystem> examSystem, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ExamDialog),
@@ -102,18 +103,37 @@ void ExamDialog::setupSingleChoiceUI(std::shared_ptr<Question> question)
             });
 }
 
-void ExamDialog::setupMultipleChoiceUI(std::shared_ptr<Question> question)
-{
+void ExamDialog::setupMultipleChoiceUI(std::shared_ptr<Question> question) {
     QVBoxLayout* layout = new QVBoxLayout(ui->answerWidget);
     auto multiChoice = std::dynamic_pointer_cast<MultipleChoiceQuestion>(question);
+    if (!multiChoice) return;
 
+    // 清空之前的答案记录
+    currentMultiAnswers.clear();
+
+    // 为每个选项创建复选框，并关联状态变化信号
     for (int i = 0; i < multiChoice->getOptions().size(); ++i) {
         QCheckBox* checkBox = new QCheckBox(
             QString::fromStdString(multiChoice->getOptions()[i]));
         layout->addWidget(checkBox);
-    }
 
-    // 如果已经有答案，选中对应的选项
+        // 记录复选框指针（用于后续获取状态）
+        checkBoxes.push_back(checkBox);
+
+        // 关联勾选状态变化信号
+        connect(checkBox, &QCheckBox::stateChanged, [this, i](int state) {
+            if (state == Qt::Checked) {
+                // 选中时添加索引
+                currentMultiAnswers.push_back(i);
+            } else {
+                // 取消选中时移除索引
+                auto it = std::find(currentMultiAnswers.begin(), currentMultiAnswers.end(), i);
+                if (it != currentMultiAnswers.end()) {
+                    currentMultiAnswers.erase(it);
+                }
+            }
+        });
+    }
 }
 
 void ExamDialog::setupJudgementUI(std::shared_ptr<Question> question)
@@ -163,7 +183,24 @@ void ExamDialog::saveAnswer()
         // 参数：currentIndex（当前题目索引）、answerStr（转换后的答案）
         examSystem->submitAnswer(currentIndex, answerStr);
     }
+    else if (currentQuestion->getType() == "多选题") {
+        // 对多选题答案进行排序，确保与标准答案格式一致
+        std::sort(currentMultiAnswers.begin(), currentMultiAnswers.end());
+
+        // 转换为字符串格式
+        std::string answerStr;
+        for (size_t i = 0; i < currentMultiAnswers.size(); ++i) {
+            if (i > 0) {
+                answerStr += ",";
+            }
+            answerStr += std::to_string(currentMultiAnswers[i]);
+        }
+        examSystem->submitAnswer(currentIndex, answerStr);
+    }
+
+
 }
+
 
 void ExamDialog::on_prevButton_clicked()
 {

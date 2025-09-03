@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ExamPaper>
+	<Question type="判断题">
+		<Description>1</Description>
+		<Score>100</Score>
+		<CorrectAnswer>true</CorrectAnswer>
+	</Question>
+</ExamPaper>

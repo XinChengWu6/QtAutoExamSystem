@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ExamPaper>
+	<Question type="单选题">
+		<Description>太空</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>日</Option>
+			<Option>月</Option>
+			<Option>星</Option>
+			<Option>流</Option>
+		</Options>
+		<CorrectAnswer>0</CorrectAnswer>
+	</Question>
+	<Question type="多选题">
+		<Description>海洋</Description>
+		<Score>10</Score>
+		<Options>
+			<Option>鱼</Option>
+			<Option>盐</Option>
+			<Option>水</Option>
+			<Option>藻</Option>
+		</Options>
+		<CorrectAnswers>
+			<Answer>1</Answer>
+		</CorrectAnswers>
+	</Question>
+	<Question type="判断题">
+		<Description>大地</Description>
+		<Score>10</Score>
+		<CorrectAnswer>false</CorrectAnswer>
+	</Question>
+	<Question type="问答题">
+		<Description>山脉</Description>
+		<Score>10</Score>
+		<Keywords>
+			<Keyword>林，风，火，山</Keyword>
+		</Keywords>
+		<ScoringRule>0</ScoringRule>
+	</Question>
+	<Question type="问答题">
+		<Description>思念</Description>
+		<Score>60</Score>
+		<Keywords>
+			<Keyword>何</Keyword>
+		</Keywords>
+		<ScoringRule>0</ScoringRule>
+	</Question>
+</ExamPaper>
