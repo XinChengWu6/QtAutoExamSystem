@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ExamPaper>
+	<Question type="问答题">
+		<Description>1</Description>
+		<Score>30</Score>
+		<Keywords>
+			<Keyword>1，2，3</Keyword>
+		</Keywords>
+		<ScoringRule>0</ScoringRule>
+	</Question>
+	<Question type="问答题">
+		<Description>2</Description>
+		<Score>30</Score>
+		<Keywords>
+			<Keyword>1，2，3</Keyword>
+		</Keywords>
+		<ScoringRule>1</ScoringRule>
+	</Question>
+	<Question type="问答题">
+		<Description>3</Description>
+		<Score>40</Score>
+		<Keywords>
+			<Keyword>1，2，3</Keyword>
+		</Keywords>
+		<ScoringRule>2</ScoringRule>
+	</Question>
+</ExamPaper>

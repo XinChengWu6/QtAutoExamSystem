@@ -147,10 +147,24 @@ void ExamDialog::setupJudgementUI(std::shared_ptr<Question> question)
     layout->addWidget(falseButton);
 
     QButtonGroup* buttonGroup = new QButtonGroup(this);
-    buttonGroup->addButton(trueButton, 1);
-    buttonGroup->addButton(falseButton, 0);
+    buttonGroup->addButton(trueButton, 1);  // 1表示正确
+    buttonGroup->addButton(falseButton, 0); // 0表示错误
 
-    // 如果已经有答案，选中对应的选项
+    // 关联按钮组的选中状态变化信号，更新当前答案
+    connect(buttonGroup, QOverload<int, bool>::of(&QButtonGroup::idToggled),
+            [this](int buttonId, bool isChecked) {
+                if (isChecked) {
+                    // 按钮ID为1时表示正确（true），0时表示错误（false）
+                    currentJudgementAnswer = (buttonId == 1);
+                }
+            });
+
+    // 如果已经有答案，选中对应的选项（可选：加载历史答案）
+    auto judgement = std::dynamic_pointer_cast<JudgementQuestion>(question);
+    if (judgement) {
+        // 这里可以根据已保存的答案设置初始选中状态（如果需要）
+        // 例如：假设之前保存的答案是"true"，则选中trueButton
+    }
 }
 
 void ExamDialog::setupEssayUI(std::shared_ptr<Question> question)
@@ -195,6 +209,11 @@ void ExamDialog::saveAnswer()
             }
             answerStr += std::to_string(currentMultiAnswers[i]);
         }
+        examSystem->submitAnswer(currentIndex, answerStr);
+    }
+    else if (currentQuestion->getType() == "判断题") {
+        // 将bool值转换为"true"/"false"字符串（与JudgementQuestion的评分逻辑兼容）
+        std::string answerStr = currentJudgementAnswer ? "true" : "false";
         examSystem->submitAnswer(currentIndex, answerStr);
     }
 
