@@ -26,12 +26,19 @@ std::shared_ptr<Question> EssayDialog::getQuestion()
         return nullptr;
     }
 
-    // 获取关键词
-    QStringList keywordList = ui->keywordsEdit->text().split(',', Qt::SkipEmptyParts);
+    // 获取关键词（修复：支持中英文逗号分割）
+    QString keywordsText = ui->keywordsEdit->text();
+    // 1. 将中文逗号替换为英文逗号，统一分隔符
+    keywordsText.replace("，", ",");
+    // 2. 按英文逗号分割，跳过空项
+    QStringList keywordList = keywordsText.split(',', Qt::SkipEmptyParts);
+
     std::vector<std::string> keywords;
     for (const QString& keyword : keywordList) {
-        if (!keyword.trimmed().isEmpty()) {
-            keywords.push_back(keyword.trimmed().toStdString());
+        // 去除关键词前后空格
+        QString trimmed = keyword.trimmed();
+        if (!trimmed.isEmpty()) {
+            keywords.push_back(trimmed.toStdString());
         }
     }
 
@@ -40,7 +47,7 @@ std::shared_ptr<Question> EssayDialog::getQuestion()
         return nullptr;
     }
 
-    // 获取评分规则
+    // 获取评分规则（不变）
     EssayQuestion::ScoringRule rule;
     if (ui->containsAnyRadio->isChecked()) {
         rule = EssayQuestion::CONTAINS_ANY;
